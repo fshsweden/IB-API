@@ -1,4 +1,4 @@
-package ib;
+package internal;
 /* Copyright (C) 2013 Interactive Brokers LLC. All rights reserved.  This code is subject to the terms
  * and conditions of the IB API Non-Commercial License or the IB API Commercial License, as applicable. */
 
@@ -7,6 +7,21 @@ package ib;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Vector;
+
+import ib.ApiConnection;
+import ib.ComboLeg;
+import ib.CommissionReport;
+import ib.Contract;
+import ib.ContractDetails;
+import ib.Execution;
+import ib.MarketDataType;
+import ib.Order;
+import ib.OrderComboLeg;
+import ib.OrderState;
+import ib.TagValue;
+import ib.TickType;
+import ib.UnderComp;
+import ib.Util;
 
 public class EWrapperMsgGenerator extends AnyWrapperMsgGenerator {
     public static final String SCANNER_PARAMETERS = "SCANNER PARAMETERS:";
@@ -419,7 +434,7 @@ public class EWrapperMsgGenerator extends AnyWrapperMsgGenerator {
     }
     
     static public String receiveFA(int faDataType, String xml) {
-    	return FINANCIAL_ADVISOR + " " + EClientSocket.faMsgTypeName(faDataType) + " " + xml;
+    	return FINANCIAL_ADVISOR + " " + ApiConnection.faMsgTypeName(faDataType) + " " + xml;
     }
     
     static public String historicalData(int reqId, String date, double open, double high, double low,

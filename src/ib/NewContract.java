@@ -151,11 +151,18 @@ public class NewContract implements Cloneable {
 		m_underComp = v;
 	}
 
+	/*
+	 * Construct an empty object
+	 */
 	public NewContract() {
 		m_secType = SecType.None;
 		m_secIdType = SecIdType.None;
 	}
 
+	/**
+	 * Construct using an old Contract
+	 * 
+	 */
 	public NewContract(Contract c) {
 		m_conid = c.m_conId;
 		m_symbol = c.m_symbol;
@@ -181,6 +188,10 @@ public class NewContract implements Cloneable {
 		}
 	}
 
+	/**
+	 * create a Contract from our info
+	 * 
+	 */
 	public Contract getContract() {
 		Contract c = new Contract();
 		c.m_conId = m_conid;
@@ -249,6 +260,9 @@ public class NewContract implements Cloneable {
 		return sb.toString();
 	}
 
+	/*
+	 * WTF? MOVE TO TOOLS!
+	 */
 	private static void app(StringBuilder buf, Object obj) {
 		if (obj != null) {
 			buf.append(" ");
@@ -282,6 +296,9 @@ public class NewContract implements Cloneable {
 		return sb.toString();
 	}
 
+	/*
+	 * WTF? MOVE TO TOOLS!
+	 */
 	public static void add(StringBuilder sb, String tag, Object val) {
 		if (val == null || val instanceof String && ((String) val).length() == 0) {
 			return;
